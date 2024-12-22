@@ -9,6 +9,7 @@ const mqlIP = 'bj-cynosdbmysql-grp-7tf282u6.sql.tencentcdb.com'  // 数据库地
 const mqlUser = 'root'   // 数据库用户名
 const mqlPassWord = 'lj552400QQ'  // 数据库密码
 const mqlName = 'HouTai' // 数据库名
+const port = '26702'
 
 // 数据库表名
 const test = 'test'  // 测试用数据库表名
@@ -20,7 +21,8 @@ const userMql = {
     mqlUser,
     mqlPassWord,
     mqlName,
-    test
+    test,
+    port
 };
 
 module.exports = userMql;

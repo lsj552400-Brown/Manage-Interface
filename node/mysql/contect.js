@@ -9,8 +9,7 @@ const connectMql = mysql.createConnection({
     user: userMql.mqlUser,     // 用户名
     password: userMql.mqlPassWord,   //密码
     database: userMql.mqlName,    // 数据库名
-    port: 26702,
-    timeout: 30000,
+    port: userMql.port     // 数据库端口
 })
 
 connectMql.connect(err => {
