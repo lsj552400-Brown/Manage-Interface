@@ -8,7 +8,9 @@ const connectMql = mysql.createConnection({
     host: userMql.mqlIP,       //主机地址
     user: userMql.mqlUser,     // 用户名
     password: userMql.mqlPassWord,   //密码
-    database: userMql.mqlName    // 数据库名
+    database: userMql.mqlName,    // 数据库名
+    port: 26702,
+    timeout: 30000,
 })
 
 connectMql.connect(err => {
@@ -16,10 +18,10 @@ connectMql.connect(err => {
 })
 
 app.get('/find',(req,res)=>{
-    let sql = `SELECT * FROM test `
+    let sql = `SELECT * FROM ${userMql.test}`
     connectMql.query(sql,(err,results)=>{
         res.send(results)
-        console.log('打印',results)
+        console.log('打印',results, err)
     })
 })
 
