@@ -4,13 +4,18 @@
   "description": "测试阶段1.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.2",
     "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "webpack-cli": "^6.0.1"
   }
 }
