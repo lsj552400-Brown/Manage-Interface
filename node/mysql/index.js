@@ -23,6 +23,28 @@ connectMql.connect(err => {
     }
 });
 
+// 登录接口
+// 'SELECT * FROM userList WHERE userName = ? AND passWord = ?'
+app.post('/login', (req, res) => {
+    const { username, password } = req.body; // 从请求体中获取用户名和密码
+    if (!username || !password) {
+      return res.status(400).json({ message: '用户名和密码不能为空' });
+    }
+    const sql = 'SELECT * FROM userList WHERE userName = ? AND passWord = ?';
+    connectMql.query(sql, [username, password], (err, results) => {
+      if (err) {
+        res.status(500).send('登录失败');
+      } else {
+        if (results.length > 0) {
+          res.json({ status: 'success', message: '登录成功', user: results[0] });
+        } else {
+          res.status(401).json({ message: '用户名或密码错误' });
+        }
+      }
+    });
+  });
+
+
 // 处理/find路由
 app.get('/find', (req, res) => {
   let sql = `SELECT * FROM ${userMql.test}`;
